@@ -14,6 +14,8 @@
 
 # TL;DR
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/fastify/benchmarks.svg)](https://greenkeeper.io/)
+
 * [Fastify](https://github.com/fastify/fastify) is, fast and low overhead web framework for Node.js
 * This package shows how fast it is comparatively.
 
