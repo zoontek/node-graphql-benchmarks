@@ -53,17 +53,24 @@ if (!choices.length) {
     table.push([":--", "--:", ":-:", "--:", "--:", "--:"]);
   }
 
-  choices.forEach((result, i) => {
-    let data = readFileSync(`${resultsPath}/${result}.json`);
-    data = JSON.parse(data.toString());
+  let data = [];
+  choices.forEach(file => {
+    let content = readFileSync(`${resultsPath}/${file}.json`);
+    data.push(JSON.parse(content.toString()));
+  });
+  data.sort((a, b) => {
+    return parseFloat(b.requests.mean) - parseFloat(a.requests.mean);
+  });
+
+  data.forEach((data, i) => {
     if (i === 0) {
       console.log(
         `duration: ${data.duration}s\nconnections: ${data.connections}\npipelining: ${data.pipelining}`
       );
     }
-    const beBold = result === "fastify";
+    const beBold = false;
     table.push([
-      bold(beBold, chalk.blue(result)),
+      bold(beBold, chalk.blue(data.server)),
       bold(beBold, data.requests.average.toFixed(1)),
       bold(beBold, data.latency.average.toFixed(2)),
       bold(beBold, (data.throughput.average / 1024 / 1024).toFixed(2))
