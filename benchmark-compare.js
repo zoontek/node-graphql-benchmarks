@@ -47,10 +47,10 @@ if (!choices.length) {
     : {};
   const table = new Table({
     chars: tableSeparatorChars,
-    head: ["", "Requests/s", "Latency", "Throughput/Mb"]
+    head: ["Server", "Requests/s", "Latency", "Throughput/Mb"]
   });
   if (commander.commandlineMdTable) {
-    table.push([":--", "--:", ":-:", "--:", "--:", "--:"]);
+    table.push([":--", "--:", ":-:", "--:"]);
   }
 
   let data = [];
@@ -98,8 +98,7 @@ if (!choices.length) {
   );
   const table = new Table({
     head: [
-      "",
-      "Router",
+      "Server",
       `Requests/s\n(% of ${base.name})`,
       `Latency\n(% of ${base.name})`,
       `Throughput/Mb\n(% of ${base.name})`
