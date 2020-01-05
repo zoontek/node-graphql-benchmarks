@@ -67,6 +67,7 @@ if (!choices.length) {
       console.log(
         `duration: ${data.duration}s\nconnections: ${data.connections}\npipelining: ${data.pipelining}`
       );
+      console.log("");
     }
     const beBold = false;
     table.push([

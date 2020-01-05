@@ -19,18 +19,26 @@ npm start
 - **Method:** `autocannon -c 5 -d 5 localhost:4001/graphql` (two rounds; one to warm-up, one to measure).
 - **Node:** `13.5.0`
 
-duration: 5.05s
+duration: 5.04s
 connections: 5
 pipelining: 1
 
-|                               | Requests/s | Latency | Throughput/Mb |
-| :---------------------------- | ---------: | :-----: | ------------: |
-| apollo-opentracing            |       51.4 |  95.95  |          7.12 |
-| apollo-server-express-tracing |       44.2 | 111.34  |         31.35 |
-| apollo-server-express         |       97.6 |  50.49  |         13.51 |
-| apollo-server-fastify         |       99.4 |  49.49  |         13.75 |
-| express-REST                  |      765.0 |  5.97   |        130.42 |
-| express-graphql+graphql-jit   |      496.6 |  9.59   |         68.71 |
-| express-graphql               |      143.8 |  34.12  |         19.89 |
-| fastify-gql                   |      154.8 |  31.70  |         21.40 |
-| graphql-api-koa               |      138.2 |  35.56  |         19.07 |
+| Server                                   | Requests/s | Latency | Throughput/Mb |
+| :--                                      | --:        | :-:     | --:           |
+| express-REST                             | 7987.2     | 0.08    | 58.14         |
+| fastify-gql                              | 2433.8     | 1.53    | 15.16         |
+| express-graphql+graphql-jit              | 2397.4     | 1.55    | 15.09         |
+| express-graphql+graphql-jit+type-graphql | 2178.0     | 1.72    | 13.71         |
+| graphql-api-koa                          | 1742.8     | 2.46    | 10.86         |
+| express-graphql                          | 1598.6     | 2.75    | 10.06         |
+| express-graphql+type-graphql             | 1531.4     | 2.80    | 9.64          |
+| apollo-schema+async                      | 1525.0     | 2.84    | 9.60          |
+| type-graphql+async                       | 1464.2     | 2.91    | 9.22          |
+| type-graphql+middleware                  | 1430.2     | 2.99    | 9.00          |
+| apollo-server-fastify                    | 1381.2     | 3.10    | 8.63          |
+| type-graphql+async-middleware            | 1366.8     | 3.12    | 8.60          |
+| express-graphql-dd-trace-no-plugin       | 1296.6     | 3.30    | 8.16          |
+| apollo-server-express                    | 1265.2     | 3.38    | 8.00          |
+| apollo-opentracing                       | 908.4      | 4.96    | 5.75          |
+| apollo-server-express-tracing            | 757.4      | 6.10    | 24.12         |
+| express-graphql-dd-trace                 | 601.0      | 7.83    | 3.78          |

@@ -7,7 +7,7 @@
     "start": "node benchmark.js && node benchmark.js compare -t",
     "bench": "node benchmark.js",
     "compare": "node benchmark.js compare --",
-    "update-readme": "sed -n '1,21p' README.md > README.md && node benchmark.js compare -tc >> README.md",
+    "update-readme": "sed -n '1,21p' README.md > tmp.md && mv tmp.md README.md && node benchmark.js compare -tc >> README.md",
     "build": "tsc && mv dist/schemas/createTypeGraphQLSchema.js lib/schemas",
     "test": "standard | snazzy",
     "standard": "standard | snazzy"
