@@ -53,9 +53,14 @@ if (!choices.length) {
     table.push([":--", "--:", ":-:", "--:", "--:", "--:"]);
   }
 
-  choices.forEach(result => {
+  choices.forEach((result, i) => {
     let data = readFileSync(`${resultsPath}/${result}.json`);
     data = JSON.parse(data.toString());
+    if (i === 0) {
+      console.log(
+        `duration: ${data.duration}s\nconnections: ${data.connections}\npipelining: ${data.pipelining}`
+      );
+    }
     const beBold = result === "fastify";
     table.push([
       bold(beBold, chalk.blue(result)),

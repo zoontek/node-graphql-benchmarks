@@ -58,7 +58,7 @@ inquirer
       type: "input",
       name: "duration",
       message: "How long should it take?",
-      default: 20,
+      default: 5,
       validate(value) {
         return !Number.isNaN(parseFloat(value)) || "Please enter a number";
       },
