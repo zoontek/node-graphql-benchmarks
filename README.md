@@ -1,33 +1,12 @@
-<div align="center">
-<img src="https://github.com/fastify/graphics/raw/master/full-logo.png" width="650" height="auto"/>
-</div>
-
-<div align="center">
-
-[![Build Status](https://travis-ci.org/fastify/fastify.svg?branch=master)](https://travis-ci.org/fastify/fastify)
-[![Coverage Status](https://coveralls.io/repos/github/fastify/fastify/badge.svg?branch=master)](https://coveralls.io/github/fastify/fastify?branch=master)
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
-[![NPM version](https://img.shields.io/npm/v/fastify.svg?style=flat)](https://www.npmjs.com/package/fastify)
-[![NPM downloads](https://img.shields.io/npm/dm/fastify.svg?style=flat)](https://www.npmjs.com/package/fastify) [![Gitter](https://badges.gitter.im/gitterHQ/gitter.svg)](https://gitter.im/fastify)
-
-</div>
-<br />
-
 # TL;DR
 
-- [Fastify](https://github.com/fastify/fastify) is, fast and low overhead web framework for Node.js
-- This package shows how fast it is comparatively.
-
-# Installing
-
-```
-npm i -g fastify-benchmarks
-```
+- graphql-jit helps
+- apollo-server adds overhead
 
 # Usage
 
 ```
-benchmark [arguments (optional)]
+npm start [arguments (optional)]
 ```
 
 #### Arguments
@@ -41,9 +20,9 @@ benchmark [arguments (optional)]
 
 # Benchmarks
 
-- **Machine:** CPU-optimized server (Ubuntu 18.04.2 x64 | 8 vCPUs | 32GB | Node 10.15).
-- **Method:** `autocannon -c 100 -d 40 -p 10 localhost:3000` (two rounds; one to warm-up, one to measure).
-- **Node:** `10.15.2`
+- **Machine:** My iMac
+- **Method:** `autocannon -c 5 -d 10 localhost:4001/graphql` (two rounds; one to warm-up, one to measure).
+- **Node:** `13.5.0`
 
 |                               | Requests/s | Latency | Throughput/Mb |
 | :---------------------------- | ---------: | :-----: | ------------: |
