@@ -4,7 +4,8 @@
   "description": "Benchmarks for Fastify, a fast and low-overhead web framework.",
   "main": "index.js",
   "scripts": {
-    "start": "node benchmark.js",
+    "start": "node benchmark.js && node benchmark.js compare -t",
+    "bench": "node benchmark.js",
     "compare": "node benchmark.js compare --",
     "build": "tsc && mv dist/schemas/createTypeGraphQLSchema.js lib/schemas",
     "test": "standard | snazzy",
@@ -36,6 +37,7 @@
     "commander": "^4.0.1",
     "connect": "^3.6.6",
     "cors": "^2.8.5",
+    "dd-trace": "^0.16.3",
     "dns-prefetch-control": "^0.3.0",
     "egg": "^2.19.0",
     "express": "^4.16.4",
