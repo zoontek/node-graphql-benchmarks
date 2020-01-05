@@ -24,14 +24,15 @@ npm start [arguments (optional)]
 duration: 5.05s
 connections: 5
 pipelining: 1
-| | Requests/s | Latency | Throughput/Mb |
-| :-- | --: | :-: | --: | --: | --: |
-| apollo-opentracing | 51.4 | 95.95 | 7.12 |
-| apollo-server-express-tracing | 44.2 | 111.34 | 31.35 |
-| apollo-server-express | 97.6 | 50.49 | 13.51 |
-| apollo-server-fastify | 99.4 | 49.49 | 13.75 |
-| express-REST | 765.0 | 5.97 | 130.42 |
-| express-graphql+graphql-jit | 496.6 | 9.59 | 68.71 |
-| express-graphql | 143.8 | 34.12 | 19.89 |
-| fastify-gql | 154.8 | 31.70 | 21.40 |
-| graphql-api-koa | 138.2 | 35.56 | 19.07 |
+
+|                               | Requests/s | Latency | Throughput/Mb |
+| :--                           | --:        | :-:     | --:           | --: | --: |
+| apollo-opentracing            | 51.4       | 95.95   | 7.12          |
+| apollo-server-express-tracing | 44.2       | 111.34  | 31.35         |
+| apollo-server-express         | 97.6       | 50.49   | 13.51         |
+| apollo-server-fastify         | 99.4       | 49.49   | 13.75         |
+| express-REST                  | 765.0      | 5.97    | 130.42        |
+| express-graphql+graphql-jit   | 496.6      | 9.59    | 68.71         |
+| express-graphql               | 143.8      | 34.12   | 19.89         |
+| fastify-gql                   | 154.8      | 31.70   | 21.40         |
+| graphql-api-koa               | 138.2      | 35.56   | 19.07         |
