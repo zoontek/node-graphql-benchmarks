@@ -46,6 +46,7 @@
     "graphql-api-koa": "^4.0.0",
     "graphql-jit": "^0.4.2",
     "graphql-tools": "^4.0.6",
+    "graphql-upload": "^9.0.0",
     "hide-powered-by": "^1.0.0",
     "hsts": "^2.1.0",
     "http-errors": "^1.7.3",
