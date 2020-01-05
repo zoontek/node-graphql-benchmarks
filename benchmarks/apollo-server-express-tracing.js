@@ -5,7 +5,8 @@ const express = require("express");
 const app = express();
 const schema = createApolloSchema();
 const server = new ApolloServer({
-  schema
+  schema,
+  tracing: true
 });
 server.applyMiddleware({ app });
 app.listen(4001);
