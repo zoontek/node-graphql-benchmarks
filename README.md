@@ -26,7 +26,7 @@ connections: 5
 pipelining: 1
 
 |                               | Requests/s | Latency | Throughput/Mb |
-| :--                           | --:        | :-:     | --:           | --: | --: |
+| :--                           | --:        | :-:     | --:           |
 | apollo-opentracing            | 51.4       | 95.95   | 7.12          |
 | apollo-server-express-tracing | 44.2       | 111.34  | 31.35         |
 | apollo-server-express         | 97.6       | 50.49   | 13.51         |
