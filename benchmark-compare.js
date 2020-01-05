@@ -71,7 +71,14 @@ if (!choices.length) {
     }
     const beBold = false;
     table.push([
-      bold(beBold, chalk.blue(data.server)),
+      bold(
+        beBold,
+        chalk.blue(
+          commander.commandlineMdTable
+            ? `[${data.server}](https://github.com/benawad/benchmarks/tree/master/benchmarks/${data.server}.js)`
+            : data.server
+        )
+      ),
       bold(beBold, data.requests.average.toFixed(1)),
       bold(beBold, data.latency.average.toFixed(2)),
       bold(beBold, (data.throughput.average / 1024 / 1024).toFixed(2))
