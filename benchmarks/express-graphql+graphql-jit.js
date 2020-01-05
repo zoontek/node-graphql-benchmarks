@@ -20,8 +20,7 @@ app.use(
     return {
       schema,
       customExecuteFn: ({ rootValue, variableValues, contextValue }) =>
-        cache[query].query(rootValue, contextValue, variableValues),
-      graphiql: true
+        cache[query].query(rootValue, contextValue, variableValues)
     };
   })
 );
