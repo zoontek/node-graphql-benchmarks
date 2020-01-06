@@ -19,12 +19,13 @@ npm start
 - **Method:** `autocannon -c 5 -d 5 localhost:4001/graphql` (two rounds; one to warm-up, one to measure).
 - **Node:** `13.5.0`
 
-duration: 5.04s
+duration: 5.05s
 connections: 5
 pipelining: 1
 
 | Server                                                                                                                                                            | Requests/s | Latency | Throughput/Mb |
 | :--                                                                                                                                                               | --:        | :-:     | --:           |
+| [fastify-REST](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/fastify-REST.js)                                                         | 5486.8     | 0.35    | 43.88         |
 | [fastify-gql+graphql-jit](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/fastify-gql+graphql-jit.js)                                   | 5437.2     | 0.34    | 33.87         |
 | [express-REST](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-REST.js)                                                         | 4278.2     | 0.53    | 34.49         |
 | [express-graphql+graphql-jit](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-graphql+graphql-jit.js)                           | 2374.2     | 1.57    | 14.94         |
