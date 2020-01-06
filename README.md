@@ -4,6 +4,10 @@
 - apollo-server adds overhead
 - tracing resolvers kills performance
 
+# Explanation
+
+For further details, please check out [this video](https://www.youtube.com/watch?v=JbV7MCeEPb8).
+
 # Usage
 
 ```
