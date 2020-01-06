@@ -19,10 +19,6 @@ npm start
 
 # Benchmarks
 
-- **Machine:** My iMac
-- **Method:** `autocannon -c 5 -d 5 localhost:4001/graphql` (two rounds; one to warm-up, one to measure).
-- **Node:** `13.5.0`
-
 duration: 5.05s
 connections: 5
 pipelining: 1
@@ -35,6 +31,7 @@ pipelining: 1
 | [express-graphql+graphql-jit](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-graphql+graphql-jit.js)                           | 2374.2     | 1.57    | 14.94         |
 | [fastify-gql](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/fastify-gql.js)                                                           | 2367.0     | 1.58    | 14.74         |
 | [express-graphql+graphql-jit+type-graphql](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-graphql+graphql-jit+type-graphql.js) | 2176.2     | 1.72    | 13.70         |
+| [apollo-server-fastify+graphql-jit](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/apollo-server-fastify+graphql-jit.js)               | 1740.6     | 2.33    | 10.88         |
 | [graphql-api-koa](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/graphql-api-koa.js)                                                   | 1726.8     | 2.50    | 10.76         |
 | [express-graphql](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-graphql.js)                                                   | 1564.0     | 2.79    | 9.84          |
 | [apollo-schema+async](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/apollo-schema+async.js)                                           | 1555.8     | 2.79    | 9.79          |
