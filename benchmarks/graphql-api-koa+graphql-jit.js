@@ -14,17 +14,21 @@ const app = new Koa()
   .use(errorHandler())
   .use(graphqlUploadKoa())
   .use(bodyParser())
-  .use((ctx, next) => {
-    const query = ctx.request.body.query;
-    if (!(query in cache)) {
-      const document = parse(query);
-      cache[query] = compileQuery(schema, document);
-    }
-    return execute({
+  .use(
+    execute({
       schema,
-      execute: ({ rootValue, variableValues, contextValue }) =>
-        cache[query].query(rootValue, contextValue, variableValues)
-    })(ctx, next);
-  });
+      override: ({
+        request: {
+          body: { query }
+        }
+      }) => ({
+        execute({ rootValue, contextValue, variableValues }) {
+          if (!(query in cache))
+            cache[query] = compileQuery(schema, parse(query));
+          return cache[query].query(rootValue, contextValue, variableValues);
+        }
+      })
+    })
+  );
 
 app.listen(4001);
