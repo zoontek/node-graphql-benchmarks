@@ -45,4 +45,5 @@ pipelining: 1
 | [apollo-server-express](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/apollo-server-express.js)                                       | 1238.6     | 3.45    | 7.83          |
 | [apollo-opentracing](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/apollo-opentracing.js)                                             | 913.8      | 4.92    | 5.78          |
 | [apollo-server-express-tracing](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/apollo-server-express-tracing.js)                       | 736.8      | 6.26    | 23.46         |
-| [express-graphql-dd-trace](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-graphql-dd-trace.js)                                 | 606.0      | 7.76    | 3.81          |
+| [express-graphql-dd-trace-less](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-graphql-dd-trace-less.js)                       | 576.4      | 8.16    | 3.63          |
+| [express-graphql-dd-trace](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-graphql-dd-trace.js)                                 | 529.6      | 8.95    | 3.33          |
