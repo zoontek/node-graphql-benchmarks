@@ -1,6 +1,7 @@
 const { GraphQLServer } = require("graphql-yoga");
 const { compileQuery } = require("graphql-jit");
 const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
+const { parse } = require("graphql");
 
 const schema = createApolloSchema();
 
