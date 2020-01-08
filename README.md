@@ -28,6 +28,7 @@ pipelining: 1
 | [fastify-REST](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/fastify-REST.js)                                                         | 5486.8     | 0.35    | 43.88         |
 | [fastify-gql+graphql-jit](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/fastify-gql+graphql-jit.js)                                   | 5437.2     | 0.34    | 33.87         |
 | [express-REST](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-REST.js)                                                         | 4278.2     | 0.53    | 34.49         |
+| [express-gql](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-gql.js)                                                           | 3600.2     | 0.86    | 22.65         |
 | [graphql-api-koa+graphql-jit](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/graphql-api-koa+graphql-jit.js)                           | 2817.8     | 1.34    | 17.55         |
 | [express-graphql+graphql-jit](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-graphql+graphql-jit.js)                           | 2374.2     | 1.57    | 14.94         |
 | [fastify-gql](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/fastify-gql.js)                                                           | 2367.0     | 1.58    | 14.74         |
