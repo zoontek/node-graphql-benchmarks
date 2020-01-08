@@ -19,13 +19,13 @@ npm start
 ```
 
 # Benchmarks
-
 duration: 5.05s
 connections: 5
 pipelining: 1
 
 | Server                                                                                                                                                            | Requests/s | Latency | Throughput/Mb |
 | :--                                                                                                                                                               | --:        | :-:     | --:           |
+| [uWebSockets-graphql+jit](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/uWebSockets-graphql+jit.js)                                   | 5727.6     | 0.30    | 35.20         |
 | [fastify-REST](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/fastify-REST.js)                                                         | 5486.8     | 0.35    | 43.88         |
 | [fastify-gql+graphql-jit](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/fastify-gql+graphql-jit.js)                                   | 5437.2     | 0.34    | 33.87         |
 | [express-REST](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-REST.js)                                                         | 4278.2     | 0.53    | 34.49         |
