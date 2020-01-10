@@ -19,13 +19,16 @@ npm start
 ```
 
 # Benchmarks
-duration: 5.05s
+duration: 5.04s
 connections: 5
 pipelining: 1
 
 | Server                                                                                                                                                            | Requests/s | Latency | Throughput/Mb |
 | :--                                                                                                                                                               | --:        | :-:     | --:           |
+| [core-graphql-jit-str](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/core-graphql-jit-str.js)                                         | 5973.2     | 0.30    | 36.93         |
+| [core-graphql-jit-buf](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/core-graphql-jit-buf.js)                                         | 5858.8     | 0.30    | 36.23         |
 | [uWebSockets-graphql+jit](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/uWebSockets-graphql+jit.js)                                   | 5727.6     | 0.30    | 35.20         |
+| [core-graphql-jit-buf-fjs](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/core-graphql-jit-buf-fjs.js)                                 | 5679.6     | 0.30    | 35.13         |
 | [fastify-REST](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/fastify-REST.js)                                                         | 5486.8     | 0.35    | 43.88         |
 | [fastify-gql+graphql-jit](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/fastify-gql+graphql-jit.js)                                   | 5437.2     | 0.34    | 33.87         |
 | [express-REST](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-REST.js)                                                         | 4278.2     | 0.53    | 34.49         |
