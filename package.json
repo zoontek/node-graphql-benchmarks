@@ -52,6 +52,7 @@
     "foxify": "^0.10.20",
     "frameguard": "^3.0.0",
     "graphql-api-koa": "^4.1.0",
+    "graphql-compose": "^7.9.0",
     "graphql-jit": "^0.4.2",
     "graphql-tools": "^4.0.6",
     "graphql-upload": "^9.0.0",
