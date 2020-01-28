@@ -51,6 +51,7 @@ pipelining: 1
 | [type-graphql+async-middleware](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/type-graphql+async-middleware.js)                             | 1409.4     | 3.01    | 8.87          |
 | [apollo-server-fastify](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/apollo-server-fastify.js)                                             | 1383.6     | 3.10    | 8.64          |
 | [express-graphql-dd-trace-no-plugin](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/express-graphql-dd-trace-no-plugin.js)                   | 1311.0     | 3.28    | 8.25          |
+| [fastify-gql+graphql-jit+type-graphql](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/fastify-gql+graphql-jit+type-graphql.js)               | 1269.4     | 3.46    | 7.91          |
 | [apollo-server-express](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/apollo-server-express.js)                                             | 1238.6     | 3.45    | 7.83          |
 | [apollo-opentracing](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/apollo-opentracing.js)                                                   | 913.8      | 4.92    | 5.78          |
 | [yoga-graphql](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/yoga-graphql.js)                                                               | 888.2      | 5.16    | 5.57          |
