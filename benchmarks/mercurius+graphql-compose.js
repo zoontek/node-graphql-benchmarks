@@ -1,13 +1,13 @@
 const Fastify = require('fastify');
-const GQL = require('fastify-gql');
+const mercurius = require('mercurius');
 const { createGraphqlComposeSchema } = require('../lib/schemas/createGraphqlCompose');
 
 const schema = createGraphqlComposeSchema();
 
 const app = Fastify();
 
-app.register(GQL, {
-  schema
+app.register(mercurius, {
+  schema,
 });
 
 app.listen(4001);

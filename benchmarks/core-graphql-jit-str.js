@@ -1,6 +1,6 @@
 const { createServer } = require('http');
 
-const { execute, parse } = require('graphql');
+const { parse } = require('graphql');
 const { compileQuery } = require('graphql-jit');
 
 const { createApolloSchema } = require('../lib/schemas/createApolloSchema');
@@ -9,7 +9,7 @@ const schema = createApolloSchema();
 
 const cache = {};
 
-const server = createServer(function (req, res) {
+const server = createServer((req, res) => {
   let payload = '';
 
   req.on('data', (chunk) => {

@@ -1,19 +1,19 @@
-const graphqlHTTP = require("express-graphql");
+const { graphqlHTTP } = require('express-graphql');
+const express = require('express');
+const { parse } = require('graphql');
+const { compileQuery } = require('graphql-jit');
+const { graphqlUploadExpress } = require('graphql-upload');
 const {
-  createAsyncTypeGraphQLSchema
-} = require("../lib/schemas/createTypeGraphQLSchema");
-const express = require("express");
-const { parse } = require("graphql");
-const { compileQuery } = require("graphql-jit");
-const { graphqlUploadExpress } = require("graphql-upload");
+  createAsyncTypeGraphQLSchema,
+} = require('../lib/schemas/createTypeGraphQLSchema');
 
 const app = express();
 
 const cache = {};
 
-createAsyncTypeGraphQLSchema().then(schema => {
+createAsyncTypeGraphQLSchema().then((schema) => {
   app.use(
-    "/graphql",
+    '/graphql',
     graphqlUploadExpress(),
     graphqlHTTP((_, __, { query }) => {
       if (!(query in cache)) {
@@ -23,10 +23,9 @@ createAsyncTypeGraphQLSchema().then(schema => {
 
       return {
         schema,
-        customExecuteFn: ({ rootValue, variableValues, contextValue }) =>
-          cache[query].query(rootValue, contextValue, variableValues)
+        customExecuteFn: ({ rootValue, variableValues, contextValue }) => cache[query].query(rootValue, contextValue, variableValues),
       };
-    })
+    }),
   );
   app.listen(4001);
 });

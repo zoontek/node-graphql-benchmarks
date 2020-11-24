@@ -1,7 +1,7 @@
 const { createServer } = require('http');
 
 const fastJSONStringify = require('fast-json-stringify');
-const { execute, parse } = require('graphql');
+const { parse } = require('graphql');
 const { compileQuery } = require('graphql-jit');
 const turboJSONParse = require('turbo-json-parse');
 
@@ -12,7 +12,7 @@ const jsonParse = turboJSONParse({
   properties: {
     query: {
       type: 'string',
-    }
+    },
   },
 });
 
@@ -54,7 +54,7 @@ const stringify = fastJSONStringify({
           },
         },
       },
-    }
+    },
   },
 });
 
@@ -62,7 +62,7 @@ const schema = createApolloSchema();
 
 const cache = {};
 
-const server = createServer(function (req, res) {
+const server = createServer((req, res) => {
   const chunks = [];
 
   req.on('data', (chunk) => {
