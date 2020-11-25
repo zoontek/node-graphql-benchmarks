@@ -1,17 +1,17 @@
-const { parse } = require('graphql');
-const { compileQuery } = require('graphql-jit');
-const uws = require('uWebSockets.js');
+const { parse } = require("graphql");
+const { compileQuery } = require("graphql-jit");
+const uws = require("uWebSockets.js");
 const {
   createAsyncTypeGraphQLSchema,
-} = require('../lib/schemas/createTypeGraphQLSchema');
+} = require("../lib/schemas/createTypeGraphQLSchema");
 
 const cache = {};
 
 createAsyncTypeGraphQLSchema().then((schema) => {
   uws
     .App()
-    .post('/graphql', (res) => {
-      res.onAborted(() => { });
+    .post("/graphql", (res) => {
+      res.onAborted(() => {});
       res.onData((ab) => {
         const body = JSON.parse(Buffer.from(ab).toString());
         const { query } = body;
@@ -25,5 +25,5 @@ createAsyncTypeGraphQLSchema().then((schema) => {
         });
       });
     })
-    .listen(4001, () => { });
+    .listen(4001, () => {});
 });

@@ -1,6 +1,8 @@
-const Fastify = require('fastify');
-const mercurius = require('mercurius');
-const { createGraphqlComposeSchema } = require('../lib/schemas/createGraphqlCompose');
+const Fastify = require("fastify");
+const mercurius = require("mercurius");
+const {
+  createGraphqlComposeSchema,
+} = require("../lib/schemas/createGraphqlCompose");
 
 const schema = createGraphqlComposeSchema();
 

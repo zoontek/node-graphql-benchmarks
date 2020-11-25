@@ -1,10 +1,10 @@
-const Koa = require('koa');
-const bodyParser = require('koa-bodyparser');
-const { errorHandler, execute } = require('graphql-api-koa');
-const { graphqlUploadKoa } = require('graphql-upload');
-const { parse } = require('graphql');
-const { compileQuery } = require('graphql-jit');
-const { createApolloSchema } = require('../lib/schemas/createApolloSchema');
+const Koa = require("koa");
+const bodyParser = require("koa-bodyparser");
+const { errorHandler, execute } = require("graphql-api-koa");
+const { graphqlUploadKoa } = require("graphql-upload");
+const { parse } = require("graphql");
+const { compileQuery } = require("graphql-jit");
+const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
 
 const schema = createApolloSchema();
 
@@ -23,7 +23,9 @@ const app = new Koa()
         },
       }) => ({
         execute({ rootValue, contextValue, variableValues }) {
-          if (!(query in cache)) { cache[query] = compileQuery(schema, parse(query)); }
+          if (!(query in cache)) {
+            cache[query] = compileQuery(schema, parse(query));
+          }
           return cache[query].query(rootValue, contextValue, variableValues);
         },
       }),

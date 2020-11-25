@@ -1,8 +1,8 @@
-const Fastify = require('fastify');
-const mercurius = require('mercurius');
+const Fastify = require("fastify");
+const mercurius = require("mercurius");
 const {
   createTypeGraphQLSchema,
-} = require('../lib/schemas/createTypeGraphQLSchema');
+} = require("../lib/schemas/createTypeGraphQLSchema");
 
 const app = Fastify();
 

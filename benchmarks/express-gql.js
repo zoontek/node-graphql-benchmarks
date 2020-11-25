@@ -1,14 +1,14 @@
-const bodyParser = require('body-parser');
-const { createGraphqlMiddleware } = require('express-gql');
-const express = require('express');
-const { graphqlUploadExpress } = require('graphql-upload');
-const { createApolloSchema } = require('../lib/schemas/createApolloSchema');
+const bodyParser = require("body-parser");
+const { createGraphqlMiddleware } = require("express-gql");
+const express = require("express");
+const { graphqlUploadExpress } = require("graphql-upload");
+const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
 
 const schema = createApolloSchema();
 
 const app = express();
 app.post(
-  '/graphql',
+  "/graphql",
   graphqlUploadExpress(),
   bodyParser.json(),
   createGraphqlMiddleware({

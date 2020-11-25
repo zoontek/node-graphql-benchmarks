@@ -1,55 +1,55 @@
 #!/usr/bin/env node
 
-const inquirer = require('inquirer');
-const chalk = require('chalk');
-const Table = require('cli-table');
-const { join } = require('path');
-const { readdirSync, readFileSync } = require('fs');
-const commander = require('commander');
-const { compare } = require('./lib/autocannon');
+const inquirer = require("inquirer");
+const chalk = require("chalk");
+const Table = require("cli-table");
+const { join } = require("path");
+const { readdirSync, readFileSync } = require("fs");
+const commander = require("commander");
+const { compare } = require("./lib/autocannon");
 
 commander
-  .option('-t, --table', 'table')
-  .option('-p, --percentage', 'percentage')
-  .option('-c --commandlineMdTable', 'Print a table for use in MarkDown')
+  .option("-t, --table", "table")
+  .option("-p, --percentage", "percentage")
+  .option("-c --commandlineMdTable", "Print a table for use in MarkDown")
   .parse(process.argv);
 
-const resultsPath = join(process.cwd(), 'results');
+const resultsPath = join(process.cwd(), "results");
 let choices = readdirSync(resultsPath)
   .filter((file) => file.match(/(.+)\.json$/))
   .sort()
-  .map((choice) => choice.replace('.json', ''));
+  .map((choice) => choice.replace(".json", ""));
 
 const bold = (writeBold, str) => (writeBold ? chalk.bold(str) : str);
 
 if (!choices.length) {
-  console.log(chalk.red('Benchmark to gather some results to compare.'));
+  console.log(chalk.red("Benchmark to gather some results to compare."));
 } else if (commander.table && !commander.percentage) {
   const tableSeparatorChars = commander.commandlineMdTable
     ? {
-      top: '',
-      'top-left': '',
-      'top-mid': '',
-      'top-right': '',
-      bottom: '',
-      'bottom-left': '',
-      'bottom-mid': '',
-      'bottom-right': '',
-      mid: '',
-      'left-mid': '',
-      'mid-mid': '',
-      'right-mid': '',
-      left: '|',
-      right: '|',
-      middle: '|',
-    }
+        top: "",
+        "top-left": "",
+        "top-mid": "",
+        "top-right": "",
+        bottom: "",
+        "bottom-left": "",
+        "bottom-mid": "",
+        "bottom-right": "",
+        mid: "",
+        "left-mid": "",
+        "mid-mid": "",
+        "right-mid": "",
+        left: "|",
+        right: "|",
+        middle: "|",
+      }
     : {};
   const table = new Table({
     chars: tableSeparatorChars,
-    head: ['Server', 'Requests/s', 'Latency', 'Throughput/Mb'],
+    head: ["Server", "Requests/s", "Latency", "Throughput/Mb"],
   });
   if (commander.commandlineMdTable) {
-    table.push([':--', '--:', ':-:', '--:']);
+    table.push([":--", "--:", ":-:", "--:"]);
   }
 
   const dataArray = [];
@@ -57,14 +57,16 @@ if (!choices.length) {
     const content = readFileSync(`${resultsPath}/${file}.json`);
     dataArray.push(JSON.parse(content.toString()));
   });
-  dataArray.sort((a, b) => parseFloat(b.requests.mean) - parseFloat(a.requests.mean));
+  dataArray.sort(
+    (a, b) => parseFloat(b.requests.mean) - parseFloat(a.requests.mean),
+  );
 
   dataArray.forEach((data, i) => {
     if (i === 0) {
       console.log(
         `duration: ${data.duration}s\nconnections: ${data.connections}\npipelining: ${data.pipelining}`,
       );
-      console.log('');
+      console.log("");
     }
     const beBold = false;
     table.push([
@@ -89,9 +91,10 @@ if (!choices.length) {
     const content = readFileSync(`${resultsPath}/${file}.json`);
     data.push(JSON.parse(content.toString()));
   });
-  data.sort((a, b) => parseFloat(b.requests.mean) - parseFloat(a.requests.mean));
+  data.sort(
+    (a, b) => parseFloat(b.requests.mean) - parseFloat(a.requests.mean),
+  );
   const base = {
-
     name: data[0].server,
     request: data[0].requests.mean,
     latency: data[0].latency.mean,
@@ -99,14 +102,14 @@ if (!choices.length) {
   };
   const table = new Table({
     head: [
-      'Server',
+      "Server",
       `Requests/s\n(% of ${base.name})`,
       `Latency\n(% of ${base.name})`,
       `Throughput/Mb\n(% of ${base.name})`,
     ],
   });
   data.forEach((result) => {
-    const beBold = result.server === 'fastify';
+    const beBold = result.server === "fastify";
     const getPct = (base, value) => ((value / base) * 100).toFixed(2);
 
     table.push([
@@ -120,7 +123,10 @@ if (!choices.length) {
       ),
       bold(
         beBold,
-        `${result.latency.mean}\n(${getPct(base.latency, result.latency.mean)})`,
+        `${result.latency.mean}\n(${getPct(
+          base.latency,
+          result.latency.mean,
+        )})`,
       ),
       bold(
         beBold,
@@ -137,8 +143,8 @@ if (!choices.length) {
   inquirer
     .prompt([
       {
-        type: 'list',
-        name: 'choice',
+        type: "list",
+        name: "choice",
         message: "What's your first pick?",
         choices,
       },
@@ -148,8 +154,8 @@ if (!choices.length) {
       inquirer
         .prompt([
           {
-            type: 'list',
-            name: 'choice',
+            type: "list",
+            name: "choice",
             message: "What's your second one?",
             choices,
           },
@@ -167,11 +173,11 @@ if (!choices.length) {
             const diff = chalk.bold.green(result.diff);
 
             console.log(`
- ${chalk.blue('Both are awesome but')} ${fastest} ${chalk.blue(
-  'is',
-)} ${diff} ${chalk.blue('faster than')} ${slowest}
- • ${fastest} ${chalk.blue('request average is')} ${fastestAverage}
- • ${slowest} ${chalk.blue('request average is')} ${slowestAverage}`);
+ ${chalk.blue("Both are awesome but")} ${fastest} ${chalk.blue(
+              "is",
+            )} ${diff} ${chalk.blue("faster than")} ${slowest}
+ • ${fastest} ${chalk.blue("request average is")} ${fastestAverage}
+ • ${slowest} ${chalk.blue("request average is")} ${slowestAverage}`);
           }
         });
     });

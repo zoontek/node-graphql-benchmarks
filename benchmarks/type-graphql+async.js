@@ -1,14 +1,14 @@
-const { graphqlHTTP } = require('express-graphql');
-const { graphqlUploadExpress } = require('graphql-upload');
-const express = require('express');
+const { graphqlHTTP } = require("express-graphql");
+const { graphqlUploadExpress } = require("graphql-upload");
+const express = require("express");
 const {
   createAsyncTypeGraphQLSchema,
-} = require('../lib/schemas/createTypeGraphQLSchema');
+} = require("../lib/schemas/createTypeGraphQLSchema");
 
 const app = express();
 createAsyncTypeGraphQLSchema().then((schema) => {
   app.use(
-    '/graphql',
+    "/graphql",
     graphqlUploadExpress(),
     graphqlHTTP({
       schema,
