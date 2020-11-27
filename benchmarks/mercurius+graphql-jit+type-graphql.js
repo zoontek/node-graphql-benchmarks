@@ -1,15 +1,14 @@
 const Fastify = require("fastify");
-const GQL = require("fastify-gql");
+const mercurius = require("mercurius");
 const {
-  createTypeGraphQLSchema
+  createTypeGraphQLSchema,
 } = require("../lib/schemas/createTypeGraphQLSchema");
 
 const app = Fastify();
 
-createTypeGraphQLSchema().then(schema => {
-  app.register(GQL, {
+createTypeGraphQLSchema().then((schema) => {
+  app.register(mercurius, {
     schema,
-    jit: 1
   });
   app.listen(4001);
 });

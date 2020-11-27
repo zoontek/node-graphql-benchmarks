@@ -1,51 +1,51 @@
-const { createServer } = require('http');
+const { createServer } = require("http");
 
-const fastJSONStringify = require('fast-json-stringify');
-const { execute, parse } = require('graphql');
-const { compileQuery } = require('graphql-jit');
-const turboJSONParse = require('turbo-json-parse');
+const fastJSONStringify = require("fast-json-stringify");
+const { parse } = require("graphql");
+const { compileQuery } = require("graphql-jit");
+const turboJSONParse = require("turbo-json-parse");
 
-const { createApolloSchema } = require('../lib/schemas/createApolloSchema');
+const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
 
 const jsonParse = turboJSONParse({
-  type: 'object',
+  type: "object",
   properties: {
     query: {
-      type: 'string',
-    }
+      type: "string",
+    },
   },
 });
 
 const stringify = fastJSONStringify({
-  type: 'object',
+  type: "object",
   properties: {
     data: {
-      type: 'object',
+      type: "object",
       properties: {
         authors: {
-          type: 'array',
+          type: "array",
           items: {
-            type: 'object',
+            type: "object",
             properties: {
               id: {
-                type: 'string',
+                type: "string",
               },
               name: {
-                type: 'string',
+                type: "string",
               },
               md5: {
-                type: 'string',
+                type: "string",
               },
               books: {
-                type: 'array',
+                type: "array",
                 items: {
-                  type: 'object',
+                  type: "object",
                   properties: {
                     id: {
-                      type: 'string',
+                      type: "string",
                     },
                     name: {
-                      type: 'string',
+                      type: "string",
                     },
                   },
                 },
@@ -54,7 +54,7 @@ const stringify = fastJSONStringify({
           },
         },
       },
-    }
+    },
   },
 });
 
@@ -62,14 +62,14 @@ const schema = createApolloSchema();
 
 const cache = {};
 
-const server = createServer(function (req, res) {
+const server = createServer((req, res) => {
   const chunks = [];
 
-  req.on('data', (chunk) => {
+  req.on("data", (chunk) => {
     chunks.push(chunk);
   });
 
-  req.on('end', async () => {
+  req.on("end", async () => {
     const { query } = jsonParse(Buffer.concat(chunks).toString());
 
     cache[query] = cache[query] || compileQuery(schema, parse(query));

@@ -1,18 +1,19 @@
-const graphqlHTTP = require("express-graphql");
-const {
-  createTypeGraphQLSchema
-} = require("../lib/schemas/createTypeGraphQLSchema");
+const { graphqlHTTP } = require("express-graphql");
 const { graphqlUploadExpress } = require("graphql-upload");
 const express = require("express");
 
+const {
+  createTypeGraphQLSchema,
+} = require("../lib/schemas/createTypeGraphQLSchema");
+
 const app = express();
-createTypeGraphQLSchema().then(schema => {
+createTypeGraphQLSchema().then((schema) => {
   app.use(
     "/graphql",
     graphqlUploadExpress(),
     graphqlHTTP({
-      schema
-    })
+      schema,
+    }),
   );
   app.listen(4001);
 });

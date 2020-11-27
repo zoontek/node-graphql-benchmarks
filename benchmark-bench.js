@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-"use strict";
 
 const inquirer = require("inquirer");
 const bench = require("./lib/bench");
@@ -12,16 +11,16 @@ function select(callback) {
         type: "checkbox",
         message: "Select packages",
         name: "list",
-        choices: [...choices.map(name => ({ name }))],
-        validate: function(answer) {
+        choices: [...choices.map((name) => ({ name }))],
+        validate(answer) {
           if (answer.length < 1) {
             return "You must choose at least one package.";
           }
           return true;
-        }
-      }
+        },
+      },
     ])
-    .then(function(answers) {
+    .then((answers) => {
       callback(answers.list);
     });
 }
@@ -32,7 +31,7 @@ inquirer
       type: "confirm",
       name: "all",
       message: "Do you want to run all benchmark tests?",
-      default: false
+      default: false,
     },
     {
       type: "input",
@@ -42,7 +41,7 @@ inquirer
       validate(value) {
         return !Number.isNaN(parseFloat(value)) || "Please enter a number";
       },
-      filter: Number
+      filter: Number,
     },
     {
       type: "input",
@@ -52,7 +51,7 @@ inquirer
       validate(value) {
         return !Number.isNaN(parseFloat(value)) || "Please enter a number";
       },
-      filter: Number
+      filter: Number,
     },
     {
       type: "input",
@@ -62,12 +61,12 @@ inquirer
       validate(value) {
         return !Number.isNaN(parseFloat(value)) || "Please enter a number";
       },
-      filter: Number
-    }
+      filter: Number,
+    },
   ])
-  .then(opts => {
+  .then((opts) => {
     if (!opts.all) {
-      select(list => bench(opts, list));
+      select((list) => bench(opts, list));
     } else {
       bench(opts, choices);
     }

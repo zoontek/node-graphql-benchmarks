@@ -1,10 +1,10 @@
 const { ApolloServer } = require("apollo-server-koa");
-const {
-  createAsyncTypeGraphQLSchema,
-} = require("../lib/schemas/createTypeGraphQLSchema");
 const Koa = require("koa");
 const { parse } = require("graphql");
 const { compileQuery } = require("graphql-jit");
+const {
+  createAsyncTypeGraphQLSchema,
+} = require("../lib/schemas/createTypeGraphQLSchema");
 
 const app = new Koa();
 

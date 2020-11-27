@@ -1,22 +1,22 @@
-const { createServer } = require('http');
+const { createServer } = require("http");
 
-const { execute, parse } = require('graphql');
-const { compileQuery } = require('graphql-jit');
+const { parse } = require("graphql");
+const { compileQuery } = require("graphql-jit");
 
-const { createApolloSchema } = require('../lib/schemas/createApolloSchema');
+const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
 
 const schema = createApolloSchema();
 
 const cache = {};
 
-const server = createServer(function (req, res) {
+const server = createServer((req, res) => {
   const chunks = [];
 
-  req.on('data', (chunk) => {
+  req.on("data", (chunk) => {
     chunks.push(chunk);
   });
 
-  req.on('end', async () => {
+  req.on("end", async () => {
     const { query } = JSON.parse(Buffer.concat(chunks).toString());
 
     cache[query] = cache[query] || compileQuery(schema, parse(query));

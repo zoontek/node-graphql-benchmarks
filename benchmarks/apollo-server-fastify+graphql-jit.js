@@ -1,8 +1,8 @@
 const { ApolloServer } = require("apollo-server-fastify");
-const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
 const { parse } = require("graphql");
 const { compileQuery } = require("graphql-jit");
 const app = require("fastify")();
+const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
 
 const schema = createApolloSchema();
 
@@ -17,7 +17,7 @@ const server = new ApolloServer({
     }
 
     return cache[source].query({}, context, {});
-  }
+  },
 });
 app.register(server.createHandler());
 app.listen(4001);

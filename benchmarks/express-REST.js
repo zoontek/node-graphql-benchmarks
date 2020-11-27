@@ -5,6 +5,6 @@ const { data } = require("../lib/data");
 
 const app = express();
 app.post("/graphql", graphqlUploadExpress(), (_, res) => {
-  res.send(data.map(x => ({ ...x, md5: md5(x.name) })));
+  res.send(data.map((x) => ({ ...x, md5: md5(x.name) })));
 });
 app.listen(4001);

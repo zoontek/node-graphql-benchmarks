@@ -19,16 +19,17 @@ const app = new Koa()
       schema,
       override: ({
         request: {
-          body: { query }
-        }
+          body: { query },
+        },
       }) => ({
         execute({ rootValue, contextValue, variableValues }) {
-          if (!(query in cache))
+          if (!(query in cache)) {
             cache[query] = compileQuery(schema, parse(query));
+          }
           return cache[query].query(rootValue, contextValue, variableValues);
-        }
-      })
-    })
+        },
+      }),
+    }),
   );
 
 app.listen(4001);

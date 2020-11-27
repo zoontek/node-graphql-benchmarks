@@ -1,9 +1,9 @@
-const graphqlHTTP = require("express-graphql");
-const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
+const { graphqlHTTP } = require("express-graphql");
 const express = require("express");
 const { parse } = require("graphql");
 const { compileQuery } = require("graphql-jit");
 const { graphqlUploadExpress } = require("graphql-upload");
+const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
 
 const app = express();
 const schema = createApolloSchema();
@@ -22,8 +22,8 @@ app.use(
     return {
       schema,
       customExecuteFn: ({ rootValue, variableValues, contextValue }) =>
-        cache[query].query(rootValue, contextValue, variableValues)
+        cache[query].query(rootValue, contextValue, variableValues),
     };
-  })
+  }),
 );
 app.listen(4001);

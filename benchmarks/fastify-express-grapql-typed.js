@@ -1,15 +1,15 @@
-const graphqlHTTP = require("express-graphql");
+const { graphqlHTTP } = require("express-graphql");
 const {
-  createTypeGraphQLSchema
+  createTypeGraphQLSchema,
 } = require("../lib/schemas/createTypeGraphQLSchema");
 const app = require("fastify")();
 
-createTypeGraphQLSchema().then(schema => {
-  app.use(
+createTypeGraphQLSchema().then((schema) => {
+  app.post(
     "/graphql",
     graphqlHTTP({
-      schema
-    })
+      schema,
+    }),
   );
   app.listen(4001);
 });

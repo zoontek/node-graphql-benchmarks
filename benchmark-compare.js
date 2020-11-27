@@ -1,13 +1,12 @@
 #!/usr/bin/env node
-"use strict";
 
 const inquirer = require("inquirer");
 const chalk = require("chalk");
 const Table = require("cli-table");
 const { join } = require("path");
 const { readdirSync, readFileSync } = require("fs");
-const { compare } = require("./lib/autocannon");
 const commander = require("commander");
+const { compare } = require("./lib/autocannon");
 
 commander
   .option("-t, --table", "table")
@@ -17,9 +16,9 @@ commander
 
 const resultsPath = join(process.cwd(), "results");
 let choices = readdirSync(resultsPath)
-  .filter(file => file.match(/(.+)\.json$/))
+  .filter((file) => file.match(/(.+)\.json$/))
   .sort()
-  .map(choice => choice.replace(".json", ""));
+  .map((choice) => choice.replace(".json", ""));
 
 const bold = (writeBold, str) => (writeBold ? chalk.bold(str) : str);
 
@@ -42,30 +41,30 @@ if (!choices.length) {
         "right-mid": "",
         left: "|",
         right: "|",
-        middle: "|"
+        middle: "|",
       }
     : {};
   const table = new Table({
     chars: tableSeparatorChars,
-    head: ["Server", "Requests/s", "Latency", "Throughput/Mb"]
+    head: ["Server", "Requests/s", "Latency", "Throughput/Mb"],
   });
   if (commander.commandlineMdTable) {
     table.push([":--", "--:", ":-:", "--:"]);
   }
 
-  let data = [];
-  choices.forEach(file => {
-    let content = readFileSync(`${resultsPath}/${file}.json`);
-    data.push(JSON.parse(content.toString()));
+  const dataArray = [];
+  choices.forEach((file) => {
+    const content = readFileSync(`${resultsPath}/${file}.json`);
+    dataArray.push(JSON.parse(content.toString()));
   });
-  data.sort((a, b) => {
-    return parseFloat(b.requests.mean) - parseFloat(a.requests.mean);
-  });
+  dataArray.sort(
+    (a, b) => parseFloat(b.requests.mean) - parseFloat(a.requests.mean),
+  );
 
-  data.forEach((data, i) => {
+  dataArray.forEach((data, i) => {
     if (i === 0) {
       console.log(
-        `duration: ${data.duration}s\nconnections: ${data.connections}\npipelining: ${data.pipelining}`
+        `duration: ${data.duration}s\nconnections: ${data.connections}\npipelining: ${data.pipelining}`,
       );
       console.log("");
     }
@@ -76,43 +75,40 @@ if (!choices.length) {
         chalk.blue(
           commander.commandlineMdTable
             ? `[${data.server}](https://github.com/benawad/node-graphql-benchmarks/tree/master/benchmarks/${data.server}.js)`
-            : data.server
-        )
+            : data.server,
+        ),
       ),
       bold(beBold, data.requests.average.toFixed(1)),
       bold(beBold, data.latency.average.toFixed(2)),
-      bold(beBold, (data.throughput.average / 1024 / 1024).toFixed(2))
+      bold(beBold, (data.throughput.average / 1024 / 1024).toFixed(2)),
     ]);
   });
 
   console.log(table.toString());
 } else if (commander.percentage) {
-  let data = [];
-  choices.forEach(file => {
-    let content = readFileSync(`${resultsPath}/${file}.json`);
+  const data = [];
+  choices.forEach((file) => {
+    const content = readFileSync(`${resultsPath}/${file}.json`);
     data.push(JSON.parse(content.toString()));
   });
-  data.sort((a, b) => {
-    return parseFloat(b.requests.mean) - parseFloat(a.requests.mean);
-  });
-  const base = Object.assign(
-    {},
-    {
-      name: data[0].server,
-      request: data[0].requests.mean,
-      latency: data[0].latency.mean,
-      throughput: data[0].throughput.mean
-    }
+  data.sort(
+    (a, b) => parseFloat(b.requests.mean) - parseFloat(a.requests.mean),
   );
+  const base = {
+    name: data[0].server,
+    request: data[0].requests.mean,
+    latency: data[0].latency.mean,
+    throughput: data[0].throughput.mean,
+  };
   const table = new Table({
     head: [
       "Server",
       `Requests/s\n(% of ${base.name})`,
       `Latency\n(% of ${base.name})`,
-      `Throughput/Mb\n(% of ${base.name})`
-    ]
+      `Throughput/Mb\n(% of ${base.name})`,
+    ],
   });
-  data.forEach(result => {
+  data.forEach((result) => {
     const beBold = result.server === "fastify";
     const getPct = (base, value) => ((value / base) * 100).toFixed(2);
 
@@ -122,20 +118,23 @@ if (!choices.length) {
         beBold,
         `${result.requests.mean}\n(${getPct(
           base.request,
-          result.requests.mean
-        )})`
+          result.requests.mean,
+        )})`,
       ),
       bold(
         beBold,
-        `${result.latency.mean}\n(${getPct(base.latency, result.latency.mean)})`
+        `${result.latency.mean}\n(${getPct(
+          base.latency,
+          result.latency.mean,
+        )})`,
       ),
       bold(
         beBold,
         `${(result.throughput.mean / 1024 / 1024).toFixed(2)}\n(${getPct(
           base.throughput,
-          result.throughput.mean
-        )})`
-      )
+          result.throughput.mean,
+        )})`,
+      ),
     ]);
   });
 
@@ -147,21 +146,21 @@ if (!choices.length) {
         type: "list",
         name: "choice",
         message: "What's your first pick?",
-        choices
-      }
+        choices,
+      },
     ])
-    .then(firstChoice => {
-      choices = choices.filter(choice => choice !== firstChoice.choice);
+    .then((firstChoice) => {
+      choices = choices.filter((choice) => choice !== firstChoice.choice);
       inquirer
         .prompt([
           {
             type: "list",
             name: "choice",
             message: "What's your second one?",
-            choices
-          }
+            choices,
+          },
         ])
-        .then(secondChoice => {
+        .then((secondChoice) => {
           const [a, b] = [firstChoice.choice, secondChoice.choice];
           const result = compare(a, b);
           if (result === true) {
@@ -175,7 +174,7 @@ if (!choices.length) {
 
             console.log(`
  ${chalk.blue("Both are awesome but")} ${fastest} ${chalk.blue(
-              "is"
+              "is",
             )} ${diff} ${chalk.blue("faster than")} ${slowest}
  • ${fastest} ${chalk.blue("request average is")} ${fastestAverage}
  • ${slowest} ${chalk.blue("request average is")} ${slowestAverage}`);
