@@ -8,6 +8,7 @@ const app = Fastify();
 
 app.register(mercurius, {
   schema,
+  jit: 1
 });
 
 app.listen(4001);
