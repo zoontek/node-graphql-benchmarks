@@ -27,7 +27,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@benzene/server": "^0.2.0",
+    "@benzene/http": "^0.0.3",
     "@graphql-tools/schema": "^7.1.2",
     "apollo-opentracing": "^2.0.0",
     "apollo-server-express": "^2.19.0",
@@ -61,7 +61,7 @@
     "reflect-metadata": "^0.1.13",
     "turbo-json-parse": "^2.3.0",
     "type-graphql": "^1.1.1",
-    "uWebSockets.js": "uNetworking/uWebSockets.js#v16.5.0"
+    "uWebSockets.js": "uNetworking/uWebSockets.js#v18.14.0"
   },
   "devDependencies": {
     "@types/autocannon": "^4.1.0",
