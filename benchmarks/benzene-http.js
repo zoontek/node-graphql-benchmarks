@@ -1,3 +1,5 @@
+"use strict";
+
 const { createServer } = require("http");
 const { Benzene, makeHandler, parseGraphQLBody } = require("@benzene/http");
 const { createApolloSchema } = require("../lib/schemas/createApolloSchema");

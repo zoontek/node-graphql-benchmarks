@@ -1,3 +1,5 @@
+"use strict";
+
 const { GraphQLServer } = require("graphql-yoga");
 const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
 

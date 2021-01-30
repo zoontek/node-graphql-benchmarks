@@ -1,3 +1,5 @@
+"use strict";
+
 const { parse } = require("graphql");
 const { compileQuery } = require("graphql-jit");
 const uws = require("uWebSockets.js");

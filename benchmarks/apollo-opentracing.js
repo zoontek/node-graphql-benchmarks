@@ -1,3 +1,5 @@
+"use strict";
+
 const OpentracingPlugin = require("apollo-opentracing").default;
 const { ApolloServer } = require("apollo-server-express");
 const express = require("express");

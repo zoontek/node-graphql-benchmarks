@@ -1,3 +1,5 @@
+"use strict";
+
 require("dd-trace").init();
 const { graphqlHTTP } = require("express-graphql");
 const { graphqlUploadExpress } = require("graphql-upload");

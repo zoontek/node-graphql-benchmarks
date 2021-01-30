@@ -1,3 +1,5 @@
+"use strict";
+
 const { ApolloServer } = require("apollo-server-fastify");
 const app = require("fastify")();
 const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
