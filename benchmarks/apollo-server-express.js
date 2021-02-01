@@ -1,3 +1,5 @@
+"use strict";
+
 const { ApolloServer } = require("apollo-server-express");
 const express = require("express");
 const { createApolloSchema } = require("../lib/schemas/createApolloSchema");

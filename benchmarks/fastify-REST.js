@@ -1,3 +1,5 @@
+"use strict";
+
 const fastify = require("fastify")({});
 const md5 = require("md5");
 const { data } = require("../lib/data");

@@ -1,3 +1,5 @@
+"use strict";
+
 const { ApolloServer } = require("apollo-server-koa");
 const Koa = require("koa");
 const { parse } = require("graphql");

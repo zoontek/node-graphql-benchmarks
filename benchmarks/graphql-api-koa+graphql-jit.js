@@ -1,3 +1,5 @@
+"use strict";
+
 const Koa = require("koa");
 const bodyParser = require("koa-bodyparser");
 const { errorHandler, execute } = require("graphql-api-koa");

@@ -1,3 +1,5 @@
+"use strict";
+
 const { ApolloServer } = require("apollo-server-fastify");
 const { parse } = require("graphql");
 const { compileQuery } = require("graphql-jit");

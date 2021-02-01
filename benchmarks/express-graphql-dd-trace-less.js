@@ -1,3 +1,5 @@
+"use strict";
+
 const tracer = require("dd-trace").init();
 
 tracer.use("graphql", { depth: 0 });

@@ -1,3 +1,5 @@
+"use strict";
+
 const bodyParser = require("body-parser");
 const { createGraphqlMiddleware } = require("express-gql");
 const express = require("express");

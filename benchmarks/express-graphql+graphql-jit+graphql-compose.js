@@ -1,3 +1,5 @@
+"use strict";
+
 const { graphqlHTTP } = require("express-graphql");
 const express = require("express");
 const { parse } = require("graphql");

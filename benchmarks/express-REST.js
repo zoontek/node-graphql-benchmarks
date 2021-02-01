@@ -1,3 +1,5 @@
+"use strict";
+
 const express = require("express");
 const { graphqlUploadExpress } = require("graphql-upload");
 const md5 = require("md5");

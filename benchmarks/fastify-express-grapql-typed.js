@@ -1,3 +1,5 @@
+"use strict";
+
 const { graphqlHTTP } = require("express-graphql");
 const {
   createTypeGraphQLSchema,
