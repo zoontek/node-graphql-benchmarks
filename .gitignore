@@ -57,7 +57,3 @@ package-lock.json
 
 # benchmark results
 results
-
-dist
-results100
-results5

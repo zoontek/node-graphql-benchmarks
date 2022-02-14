@@ -6,8 +6,7 @@
   "scripts": {
     "start": "rm -rf results && cross-env NODE_ENV=production node benchmark.js && node benchmark.js compare -t",
     "bench": "node benchmark.js",
-    "compare": "node benchmark.js compare --",
-    "update-readme": "sed -n '1,21p' README.md > tmp.md && mv tmp.md README.md && node benchmark.js compare -tc >> README.md"
+    "compare": "node benchmark.js compare --"
   },
   "bin": {
     "benchmark": "./benchmark.js"
@@ -23,31 +22,34 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@benzene/http": "^0.4.1",
-    "@faker-js/faker": "^6.0.0-alpha.6",
-    "@graphql-tools/schema": "^8.3.1",
-    "autocannon": "^7.6.0",
-    "autocannon-compare": "^0.4.0",
-    "body-parser": "^1.19.1",
-    "chalk": "^4.1.2",
-    "cli-table": "^0.3.11",
-    "commander": "^9.0.0",
-    "express": "^4.17.2",
-    "express-gql": "^0.0.8",
-    "express-graphql": "^0.12.0",
-    "fast-json-stringify": "^3.0.3",
-    "fastify": "^3.27.1",
+    "@benzene/http": "0.4.1",
+    "@envelop/core": "2.0.0",
+    "@envelop/graphql-jit": "3.0.0",
+    "@faker-js/faker": "6.0.0-alpha.6",
+    "@graphql-tools/schema": "8.3.1",
+    "autocannon": "7.6.0",
+    "autocannon-compare": "0.4.0",
+    "body-parser": "1.19.1",
+    "chalk": "4.1.2",
+    "cli-table": "0.3.11",
+    "commander": "9.0.0",
+    "express": "4.17.2",
+    "express-gql": "0.0.8",
+    "express-graphql": "0.12.0",
+    "fast-json-stringify": "3.0.3",
+    "fastify": "3.27.1",
     "graphql": "15.8.0",
-    "graphql-jit": "^0.7.2",
-    "graphql-tag": "^2.12.6",
-    "graphql-upload": "^13.0.0",
-    "inquirer": "^8.2.0",
-    "md5": "^2.3.0",
-    "ora": "^5.4.1",
-    "turbo-json-parse": "^2.3.0"
+    "graphql-helix": "1.11.0",
+    "graphql-jit": "0.7.2",
+    "graphql-tag": "2.12.6",
+    "graphql-upload": "13.0.0",
+    "inquirer": "8.2.0",
+    "md5": "2.3.0",
+    "ora": "5.4.1",
+    "turbo-json-parse": "2.3.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
-    "prettier": "^2.5.1"
+    "cross-env": "7.0.3",
+    "prettier": "2.5.1"
   }
 }
