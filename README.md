@@ -9,7 +9,7 @@ $ yarn start
 
 ### Results
 
-_⚠️ Using caching plugins in benchmark is cheating._
+_⚠️ Using caching plugins in benchmark is kind of cheating._
 
 | Server                                   | JIT | Caching | Requests/s | Latency | Throughput/Mb |
 | ---------------------------------------- | :-: | :-----: | ---------- | ------- | ------------- |
