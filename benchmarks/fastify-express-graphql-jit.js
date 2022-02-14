@@ -1,13 +1,14 @@
 "use strict";
 
 const { graphqlHTTP } = require("express-graphql");
-const app = require("fastify")();
+const fastify = require("fastify");
 const { compileQuery } = require("graphql-jit");
 const { parse } = require("graphql");
 const { createSchema } = require("../lib/schema");
 
-const cache = {};
+const app = fastify();
 const schema = createSchema();
+const cache = {};
 
 app.post(
   "/graphql",
