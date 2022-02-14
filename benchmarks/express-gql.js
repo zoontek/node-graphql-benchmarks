@@ -9,6 +9,7 @@ const { createSchema } = require("../lib/schema");
 const schema = createSchema();
 
 const app = express();
+
 app.post(
   "/graphql",
   graphqlUploadExpress(),
