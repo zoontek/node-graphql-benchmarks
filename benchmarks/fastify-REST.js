@@ -6,8 +6,8 @@ const { data } = require("../lib/data");
 
 const app = fastify();
 
-app.post("/graphql", (_, reply) => {
-  reply.send(data.map((x) => ({ ...x, md5: md5(x.name) })));
+app.post("/graphql", (_, res) => {
+  res.send(data.map((x) => ({ ...x, md5: md5(x.name) })));
 });
 
 app.listen(4001);
