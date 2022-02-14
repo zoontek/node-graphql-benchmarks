@@ -5,7 +5,6 @@ const {
   processRequest,
   sendResult,
 } = require("graphql-helix");
-const { graphqlUploadExpress } = require("graphql-upload");
 const express = require("express");
 const { createSchema } = require("../lib/schema");
 
@@ -14,7 +13,7 @@ const schema = createSchema();
 
 app.use(express.json());
 
-app.use("/graphql", graphqlUploadExpress(), async (req, res) => {
+app.use("/graphql", async (req, res) => {
   const request = {
     body: req.body,
     headers: req.headers,

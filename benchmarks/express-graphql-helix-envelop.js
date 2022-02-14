@@ -6,7 +6,6 @@ const {
   sendResult,
 } = require("graphql-helix");
 const { envelop, useSchema } = require("@envelop/core");
-const { graphqlUploadExpress } = require("graphql-upload");
 const express = require("express");
 const { createSchema } = require("../lib/schema");
 
@@ -19,7 +18,7 @@ const getEnveloped = envelop({
   plugins: [useSchema(schema)],
 });
 
-app.use("/graphql", graphqlUploadExpress(), async (req, res) => {
+app.use("/graphql", async (req, res) => {
   const { parse, validate, contextFactory, execute, schema } = getEnveloped({
     req,
   });

@@ -4,7 +4,6 @@ const { graphqlHTTP } = require("express-graphql");
 const express = require("express");
 const { parse } = require("graphql");
 const { compileQuery } = require("graphql-jit");
-const { graphqlUploadExpress } = require("graphql-upload");
 const { createSchema } = require("../lib/schema");
 
 const app = express();
@@ -13,7 +12,6 @@ const cache = {};
 
 app.use(
   "/graphql",
-  graphqlUploadExpress(),
   graphqlHTTP((_, __, { query }) => {
     if (!(query in cache)) {
       const document = parse(query);

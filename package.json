@@ -43,7 +43,6 @@
     "graphql-helix": "1.11.0",
     "graphql-jit": "0.7.2",
     "graphql-tag": "2.12.6",
-    "graphql-upload": "13.0.0",
     "inquirer": "8.2.0",
     "md5": "2.3.0",
     "ora": "5.4.1"

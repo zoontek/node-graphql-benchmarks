@@ -10,7 +10,6 @@ const { useGraphQlJit } = require("@envelop/graphql-jit");
 const { useParserCache } = require("@envelop/parser-cache");
 const { useResponseCache } = require("@envelop/response-cache");
 const { useValidationCache } = require("@envelop/validation-cache");
-const { graphqlUploadExpress } = require("graphql-upload");
 const express = require("express");
 const { createSchema } = require("../lib/schema");
 
@@ -29,7 +28,7 @@ const getEnveloped = envelop({
   ],
 });
 
-app.use("/graphql", graphqlUploadExpress(), async (req, res) => {
+app.use("/graphql", async (req, res) => {
   const { parse, validate, contextFactory, execute, schema } = getEnveloped({
     req,
   });
