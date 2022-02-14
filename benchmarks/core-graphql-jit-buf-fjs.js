@@ -1,13 +1,12 @@
 "use strict";
 
 const { createServer } = require("http");
-
 const fastJSONStringify = require("fast-json-stringify");
 const { parse } = require("graphql");
 const { compileQuery } = require("graphql-jit");
 const turboJSONParse = require("turbo-json-parse");
 
-const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
+const { createSchema } = require("../lib/schema");
 
 const jsonParse = turboJSONParse({
   type: "object",
@@ -60,7 +59,7 @@ const stringify = fastJSONStringify({
   },
 });
 
-const schema = createApolloSchema();
+const schema = createSchema();
 
 const cache = {};
 

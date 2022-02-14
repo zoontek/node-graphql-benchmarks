@@ -2,7 +2,7 @@
 
 const { createServer } = require("http");
 const { Benzene, makeHandler, parseGraphQLBody } = require("@benzene/http");
-const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
+const { createSchema } = require("../lib/schema");
 
 const rawBody = (req, done) => {
   let body = "";
@@ -10,7 +10,7 @@ const rawBody = (req, done) => {
   req.on("end", () => done(body));
 };
 
-const schema = createApolloSchema();
+const schema = createSchema();
 
 const GQL = new Benzene({ schema });
 

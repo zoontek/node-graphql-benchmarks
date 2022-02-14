@@ -2,16 +2,12 @@
 
 const { graphqlHTTP } = require("express-graphql");
 const app = require("fastify")();
-
 const { compileQuery } = require("graphql-jit");
-
 const { parse } = require("graphql");
+const { createSchema } = require("../lib/schema");
 
 const cache = {};
-
-const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
-
-const schema = createApolloSchema();
+const schema = createSchema();
 
 app.post(
   "/graphql",

@@ -5,10 +5,10 @@ const express = require("express");
 const { parse } = require("graphql");
 const { compileQuery } = require("graphql-jit");
 const { graphqlUploadExpress } = require("graphql-upload");
-const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
+const { createSchema } = require("../lib/schema");
 
 const app = express();
-const schema = createApolloSchema();
+const schema = createSchema();
 
 const cache = {};
 

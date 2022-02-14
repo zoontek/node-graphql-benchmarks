@@ -1,13 +1,11 @@
 "use strict";
 
 const { createServer } = require("http");
-
 const { parse } = require("graphql");
 const { compileQuery } = require("graphql-jit");
+const { createSchema } = require("../lib/schema");
 
-const { createApolloSchema } = require("../lib/schemas/createApolloSchema");
-
-const schema = createApolloSchema();
+const schema = createSchema();
 
 const cache = {};
 
