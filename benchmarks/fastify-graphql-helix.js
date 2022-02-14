@@ -1,5 +1,10 @@
 "use strict";
 
+const {
+  getGraphQLParameters,
+  processRequest,
+  sendResult,
+} = require("graphql-helix");
 const fastify = require("fastify");
 const { createSchema } = require("../lib/schema");
 
