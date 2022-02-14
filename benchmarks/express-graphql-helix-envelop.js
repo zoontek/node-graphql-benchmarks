@@ -3,9 +3,7 @@
 const {
   getGraphQLParameters,
   processRequest,
-  renderGraphiQL,
   sendResult,
-  shouldRenderGraphiQL,
 } = require("graphql-helix");
 const { envelop, useSchema } = require("@envelop/core");
 const { graphqlUploadExpress } = require("graphql-upload");
@@ -33,26 +31,21 @@ app.use("/graphql", graphqlUploadExpress(), async (req, res) => {
     query: req.query,
   };
 
-  if (shouldRenderGraphiQL(request)) {
-    res.type("text/html");
-    res.send(renderGraphiQL());
-  } else {
-    const { operationName, query, variables } = getGraphQLParameters(request);
+  const { operationName, query, variables } = getGraphQLParameters(request);
 
-    const result = await processRequest({
-      operationName,
-      query,
-      variables,
-      request,
-      schema,
-      parse,
-      validate,
-      execute,
-      contextFactory,
-    });
+  const result = await processRequest({
+    operationName,
+    query,
+    variables,
+    request,
+    schema,
+    parse,
+    validate,
+    execute,
+    contextFactory,
+  });
 
-    sendResult(result, res);
-  }
+  sendResult(result, res);
 });
 
 app.listen(4001);
