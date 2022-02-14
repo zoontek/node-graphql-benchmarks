@@ -17,6 +17,5 @@ $ yarn start
 | fastify-REST                | 4782.0     | 0.40    | 41.02         |
 | express-REST                | 2933.8     | 1.20    | 25.35         |
 | fastify-express-graphql-jit | 2631.4     | 1.41    | 0.72          |
-| express-gql                 | 2581.0     | 1.45    | 17.73         |
 | express-graphql+graphql-jit | 2170.2     | 1.75    | 14.90         |
 | express-graphql             | 1683.0     | 2.60    | 11.56         |
