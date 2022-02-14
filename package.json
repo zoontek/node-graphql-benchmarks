@@ -24,9 +24,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@benzene/http": "0.4.1",
     "@envelop/core": "2.0.0",
     "@envelop/graphql-jit": "3.0.0",
+    "@envelop/parser-cache": "^4.0.0",
+    "@envelop/response-cache": "2.0.0",
+    "@envelop/validation-cache": "4.0.0",
     "@faker-js/faker": "6.0.0-alpha.6",
     "@graphql-tools/schema": "8.3.1",
     "autocannon": "7.6.0",

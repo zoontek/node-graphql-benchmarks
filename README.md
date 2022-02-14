@@ -15,7 +15,6 @@ $ yarn start
 | core-graphql-jit-buf        | 5372.4     | 0.35    | 36.32         |
 | core-graphql-jit-buf-fjs    | 5238.8     | 0.36    | 35.40         |
 | fastify-REST                | 4782.0     | 0.40    | 41.02         |
-| benzene-http                | 2999.0     | 1.32    | 20.42         |
 | express-REST                | 2933.8     | 1.20    | 25.35         |
 | fastify-express-graphql-jit | 2631.4     | 1.41    | 0.72          |
 | express-gql                 | 2581.0     | 1.45    | 17.73         |

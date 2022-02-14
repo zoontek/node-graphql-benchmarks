@@ -17,11 +17,9 @@ const server = createServer((req, res) => {
 
   req.on("end", async () => {
     const { query } = JSON.parse(payload);
-
     cache[query] = cache[query] || compileQuery(schema, parse(query));
 
     const result = await cache[query].query();
-
     res.end(JSON.stringify(result));
   });
 });
