@@ -6,7 +6,6 @@ const { compileQuery } = require("graphql-jit");
 const { createSchema } = require("../lib/schema");
 
 const schema = createSchema();
-
 const cache = {};
 
 const server = createServer((req, res) => {

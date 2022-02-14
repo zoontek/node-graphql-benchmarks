@@ -60,7 +60,6 @@ const stringify = fastJSONStringify({
 });
 
 const schema = createSchema();
-
 const cache = {};
 
 const server = createServer((req, res) => {

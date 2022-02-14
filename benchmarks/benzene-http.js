@@ -11,9 +11,7 @@ const rawBody = (req, done) => {
 };
 
 const schema = createSchema();
-
 const GQL = new Benzene({ schema });
-
 const graphqlHTTP = makeHandler(GQL);
 
 const server = createServer((req, res) => {

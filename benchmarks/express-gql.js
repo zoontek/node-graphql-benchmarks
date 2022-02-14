@@ -7,7 +7,6 @@ const { graphqlUploadExpress } = require("graphql-upload");
 const { createSchema } = require("../lib/schema");
 
 const schema = createSchema();
-
 const app = express();
 
 app.post(
@@ -20,4 +19,5 @@ app.post(
     schema,
   }),
 );
+
 app.listen(4001);
