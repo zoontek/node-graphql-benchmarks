@@ -4,9 +4,11 @@
   "description": "Benchmarks for Fastify, a fast and low-overhead web framework.",
   "main": "index.js",
   "scripts": {
-    "start": "rm -rf results && cross-env NODE_ENV=production node benchmark.js && node benchmark.js compare -t",
     "bench": "node benchmark.js",
-    "compare": "node benchmark.js compare --"
+    "clean": "rm -rf results",
+    "compare": "node benchmark.js compare --",
+    "show-table": "node benchmark.js compare -t",
+    "start": "cross-env NODE_ENV=production node benchmark.js && yarn show-table"
   },
   "bin": {
     "benchmark": "./benchmark.js"
